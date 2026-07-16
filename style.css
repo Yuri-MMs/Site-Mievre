@@ -1,0 +1,962 @@
+:root {
+  --yellow: #FFE600;
+  --yellow-soft: #FFF3B0;
+  --red: #D81E05;
+  --red-dark: #9E1704;
+  --green: #3B5C10;
+  --green-dark: #24380A;
+  --navy: #0B1440;
+  --navy-soft: #1B2657;
+  --gold: #9B7D1A;
+  --cream: #FFFBEA;
+  --ink: #1D1608;
+  --ink-soft: #5B4A2A;
+  --line: rgba(29,22,8,0.14);
+  --white: #FFFFFF;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; 
+scroll-padding-top: 80px ;
+}
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3 {
+  font-family: 'Fraunces', serif;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+a { color: inherit; }
+.mono { font-family: 'IBM Plex Mono', monospace; letter-spacing: 0.02em; }
+.wrap { max-width: 1100px; margin: 0 auto; padding: 0 28px; }
+.eyebrow {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--red);
+  font-weight: 500;
+}
+
+.logo-mark { display: block; height: 1em; width: auto; object-fit: contain; }
+
+header {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(255,251,234,0.94);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--line);
+}
+.nav {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 28px; max-width: 1100px; margin: 0 auto;
+}
+.brand {
+  display: flex; align-items: center; gap: 10px;
+  font-family: 'Fraunces', serif; font-weight: 600; font-size: 19px;
+  color: var(--navy);
+}
+.brand .logo-mark { height: 34px; }
+nav.links { display: flex; gap: 30px; font-size: 14.5px; font-weight: 500; }
+nav.links a {
+  text-decoration: none; color: var(--ink-soft);
+  transition: color .2s; padding-bottom: 2px; border-bottom: 1px solid transparent;
+}
+nav.links a:hover { color: var(--red); border-color: var(--red); }
+
+.logo-link {
+  text-decoration: none; /* Remove qualquer sublinhado indesejado */
+  cursor: pointer;       /* Garante a mãozinha de clique ao passar o mouse */
+  display: inline-flex;
+  align-items: center;
+}
+
+.hero {
+  /* MANTIDO: Mantivemos o seu gradiente sutil e a imagem */
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.4),
+      rgba(255, 255, 255, 0.5)
+    ), 
+    url('imagem/culto-fundo.jpeg') no-repeat center 70%;
+  
+  
+  background-size: cover;
+  
+  
+  padding: 80px 0; 
+  display: flex;
+  position: relative;
+  align-items: center;
+  width: 100%;
+}
+
+.hero .wrap {
+  display: grid; grid-template-columns: 1.3fr 0.7fr;
+  gap: 48px; align-items: center;
+}
+.hero .eyebrow { color: var(--red); }
+.hero h1 {
+  font-size: clamp(42px, 6vw, 68px);
+  line-height: 0.98; font-weight: 700; color: var(--navy);
+}
+.hero .subtitle {
+  margin-top: 18px; font-size: 19px; color: var(--navy-soft);
+  max-width: 46ch; opacity: 0.85;
+}
+.hero .verse {
+  margin-top: 28px; font-family: 'Fraunces', serif; font-style: italic;
+  font-size: 20px; color: var(--navy); opacity: 0.85; line-height: 1.5;
+  border-left: 3px solid var(--navy);
+  padding-left: 18px; max-width: 44ch;
+}
+.hero-cta { margin-top: 34px; display: flex; gap: 14px; flex-wrap: wrap; }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 13px 24px; border-radius: 3px; font-weight: 600; font-size: 14.5px;
+  text-decoration: none; border: 1px solid transparent; cursor: pointer;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.btn:hover { transform: translateY(-1px); }
+.btn-primary {
+  background: var(--navy); color: var(--white);
+  box-shadow: 0 4px 0 #000a26;
+}
+.btn-primary:hover { box-shadow: 0 5px 0 #000a26; }
+.btn-outline { border-color: var(--navy); color: var(--navy); }
+.btn-outline:hover { background: var(--navy); color: var(--yellow); }
+
+.hero-logo-wrap { display: flex; justify-content: center; }
+.hero-logo {
+  width: min(300px, 100%);
+  filter: drop-shadow(0 12px 20px rgba(11,20,64,0.18));
+}
+
+.ribbon { height: 10px; display: flex; }
+.ribbon span { flex: 1; }
+.ribbon .y { background: var(--navy); }
+.ribbon .r { background: var(--navy); }
+.ribbon .v { background: var(--navy); }
+
+/* Espaçamento geral das seções (pode manter como está) */
+section { 
+  padding: 96px 28px; 
+}
+
+/* AJUSTADO: Agora o container do título se centraliza na tela */
+.section-head { 
+  margin-bottom: 48px; 
+  max-width: 60ch; 
+  text-align: center !important; /* Força o alinhamento do texto ao centro */
+  margin-left: auto !important;  /* Alinha o bloco ao centro horizontalmente */
+  margin-right: auto !important; /* Alinha o bloco ao centro horizontalmente */
+}
+
+/* AJUSTADO: O título h2 agora herda a centralização e mantém suas fontes originais */
+.section-head h2 { 
+  font-size: clamp(30px, 4vw, 42px); 
+  margin-top: 10px; 
+  font-weight: 600; 
+  color: var(--navy); 
+  display: inline-block; /* Garante que se comporte bem ao centralizar */
+}
+
+
+.historia {
+  padding: 80px 0;
+<<<<<<< HEAD:style.css
+}
+
+.historia-card {
+  background: #ffffff;
+  padding: 45px;
+  border-radius: 12px;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.05);
+  margin: 0 auto 50px auto;
+  max-width: 1100px;
+  
+  /* Lado a Lado */
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  gap: 45px;
+  align-items: start;
+}
+
+=======
+}
+
+.historia-card {
+  background: #ffffff;
+  padding: 45px;
+  border-radius: 12px;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.05);
+  margin: 0 auto 50px auto;
+  max-width: 1100px;
+  
+  /* Lado a Lado */
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  gap: 45px;
+  align-items: start;
+}
+
+>>>>>>> a896b48 (Fiz algumas alterações para melhor funcionamento da página):Site-Mievre/style.css
+/* Coluna da Esquerda: Carrossel Mídia */
+.historia-coluna-midia {
+  width: 100%;
+}
+
+.carrossel-historia-limpo {
+  position: relative;
+  width: 100%;
+  height: 460px;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #1e293b;
+}
+
+.historia-slides {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.slide-historia {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.slide-historia.active {
+  opacity: 1;
+}
+
+.slide-historia img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.slide-caption-historia {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 15px;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+  color: #ffffff;
+  box-sizing: border-box;
+}
+
+.slide-caption-historia h3 {
+  margin: 0;
+  font-size: 18px;
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+}
+
+/* Navegadores menores e elegantes */
+.historia-prev-btn, .historia-next-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.35);
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background 0.2s;
+  z-index: 5;
+}
+.historia-prev-btn { left: 10px; }
+.historia-next-btn { right: 10px; }
+.historia-prev-btn:hover, .historia-next-btn:hover { background: rgba(0, 0, 0, 0.7); }
+
+/* Coluna da Direita: Texto */
+.historia-texto {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.historia-texto p {
+  color: var(--text-dark);
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: 18px;
+  text-align: justify;
+}
+
+.historia-texto p:last-of-type {
+  margin-bottom: 25px;
+}
+
+.edit-note {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  color: #b45309;
+  margin-top: auto;
+}
+
+/* ==========================================================================
+   ACORDEÃO DECLARAÇÃO DE FÉ
+   ========================================================================== */
+.declaracao-fe-container {
+  margin-top: 20px;
+}
+
+.accordion-main-title {
+<<<<<<< HEAD:style.css
+  font-family: 'Fraunces', serif;
+  font-size: 26px;
+  color: var(--navy);
+  margin-bottom: 25px;
+  text-align: center;
+=======
+  margin-bottom: 40px !important; /* Espaço elegante antes de começar as abas */
+  text-align: center !important;  /* Garante que fique centralizado */
+>>>>>>> a896b48 (Fiz algumas alterações para melhor funcionamento da página):Site-Mievre/style.css
+}
+
+.fe-accordion {
+  width: 100%;
+<<<<<<< HEAD:style.css
+  max-width: 900px;
+=======
+  max-width: 1200px;
+>>>>>>> a896b48 (Fiz algumas alterações para melhor funcionamento da página):Site-Mievre/style.css
+  margin: 0 auto;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.fe-item { border-bottom: 1px solid var(--border-color); }
+.fe-item:last-child { border-bottom: none; }
+
+.fe-titulo {
+  padding: 20px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #ffffff;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.fe-titulo:hover { background-color: #f8fafc; }
+
+.fe-titulo span:first-child {
+  color: var(--navy);
+  font-family: 'Fraunces', serif;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.fe-titulo .icon::before {
+  content: '+';
+  color: var(--gold);
+  font-size: 20px;
+  font-weight: bold;
+  transition: transform 0.3s ease;
+}
+
+.fe-item.active .fe-titulo .icon::before {
+  transform: rotate(45deg);
+}
+
+.fe-conteudo {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+
+.fe-conteudo p {
+  padding: 0 24px 20px 24px;
+  color: #475569;
+  line-height: 1.65;
+  font-size: 15px;
+}
+
+.cultos { background: var(--navy); color: var(--cream); }
+.cultos .eyebrow { color: var(--yellow); }
+.cultos .section-head h2 { color: var(--cream); }
+.culto-grid { display: flex; flex-direction: column; gap: 15px; }
+.culto-card {
+  background: var(--navy-soft); border: 1px solid rgba(255,230,0,0.18);
+  border-radius: 4px; padding: 32px; position: relative; overflow: hidden;
+}
+.culto-card::before { content: ""; position: absolute; top: 0; left: 0; width: 6px; height: 100%; }
+.culto-card.ter::before { background: var(--white); }
+.culto-card.thu::before { background: var(--white); }
+.culto-card.sun::before { background: var(--white); }
+.culto-card.sat::before {background: var(--white); }
+.culto-day {
+  font-family: 'IBM Plex Mono', monospace; font-size: 12.5px;
+  letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,251,234,0.65);
+}
+
+.culto-time { font-family: 'Fraunces', serif; font-size: 44px; font-weight: 600; margin-top: 8px; }
+.culto-card.ter .culto-time { color: #ffffff; }
+.culto-card.thu .culto-time { color: #ffffff; }
+.culto-card.sat .culto-time {color:  #FFFFFF; }
+.culto-card.sun .culto-time { color: #FFFFFF; }
+
+
+
+.culto-tema {
+  font-family: 'Fraunces', serif;
+  font-size: 14px;
+  color: rgb(255, 255, 255);
+  margin-top: 6px;
+  text-transform: uppercase;
+}
+
+.local-secao-background {
+  position: relative;
+  background-image: linear-gradient(rgba(10, 25, 47, 0.3), rgba(10, 25, 47, 0.4)), url('imagem/frente-igreja.jpeg');
+  background-size: cover; /* Mudado de "100% auto" para "cover" para preencher melhor o espaço maior */
+  
+  /* Alinha a imagem pela base para mostrar o portão, a entrada e o logo azul */
+  background-position: center 75%; 
+  background-repeat: no-repeat;
+  
+  /* Aumentamos o espaçamento interno para a seção ficar maior e mais imponente */
+  padding: 120px 0 180px 0; 
+}
+
+.local-conteudo-z {
+  position: relative;
+  z-index: 2;
+}
+
+.titulo-local-sombra {
+  color: #ffffff !important;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+  text-align: center; /* Título da localização já centralizado */
+  margin-bottom: 50px; /* Um pouco mais de espaço antes dos cards */
+  font-size: 2.2rem; /* Opcional: Garante um tamanho de destaque */
+}
+
+/* Alinha os blocos lado a lado com espaço entre eles */
+.local-grid-lado-a-lado {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch; /* Força ambos os cards a terem exatamente a mesma altura */
+  gap: 40px; 
+  flex-wrap: nowrap; /* Impede que quebre no desktop antes da hora */
+}
+
+/* Quadrado de Informações (Expandido) */
+.local-card-info-pequeno {
+  background: #ffffff;
+  padding: 35px; /* Mais espaço interno para respirar */
+  border-radius: 12px; /* Bordas levemente mais arredondadas e modernas */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 450px; /* Aumentado de 380px para 450px para dar mais presença */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.eyebrow-local {
+  color: #d4af37 !important;
+  font-weight: 700;
+  margin-bottom: 12px;
+  letter-spacing: 1px;
+  font-size: 15px;
+}
+
+.addr-local {
+  color: #0a192f !important;
+  font-size: 18px; /* Texto do endereço um pouco maior */
+  font-weight: 600;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.bairro-local {
+  color: #555555 !important;
+  display: block;
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.btn-local-margem {
+  margin-top: 25px;
+  width: fit-content;
+  display: inline-block;
+}
+
+/* Quadrado do Mapa (Expandido) */
+.local-card-mapa-pequeno {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 500px; /* Mapa ligeiramente maior que o card de texto */
+  height: 350px; /* Aumentado de 250px para 350px para ficar mais visual */
+}
+
+.local-card-mapa-pequeno iframe {
+  border: none;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .local-grid-lado-a-lado {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .local-secao-background {
+    background-size: cover; 
+    background-position: center center;
+    padding: 60px 20px;
+  }
+  .local-card-info-pequeno,
+  .local-card-mapa-pequeno {
+    max-width: 100%; /* No celular, eles se adaptam à tela */
+  }
+  .local-card-mapa-pequeno {
+    height: 280px; /* Altura confortável para o celular */
+  }
+}
+
+.dizimo { 
+  background: var(--gold); 
+  color: var(--cream); 
+}
+
+/* 1. Força o container interno a se comportar como bloco (anula o Flexbox que estava prendendo o texto na esquerda) */
+.dizimo .wrap {
+  display: block !important;
+  width: 100% !important;
+}
+
+/* 2. Agora o cabeçalho consegue ocupar toda a largura da tela e centralizar de verdade */
+.dizimo .section-head {
+  width: 100% !important;
+  max-width: 100% !important;
+  text-align: center !important;
+  margin: 0 auto 45px auto !important; /* Centraliza o bloco e empurra o Pix para baixo */
+  display: block !important;
+}
+
+/* 3. Centraliza o título */
+.dizimo .section-head h2 { 
+  color: var(--cream); 
+  text-align: center !important;
+  display: block !important;
+  width: 100% !important;
+}
+
+/* 4. Centraliza o parágrafo do versículo e limita a largura para quebrar a linha bonito */
+.dizimo .section-head p { 
+  color: rgba(255,251,234,0.78); 
+  font-size: 16.5px; 
+  margin-top: 14px; 
+  text-align: center !important;
+  max-width: 750px !important; /* Evita que o texto estique até as bordas */
+  margin-left: auto !important;  /* Junto com o margin-right auto, faz o milagre da centralização */
+  margin-right: auto !important; 
+  display: block !important;
+  line-height: 1.6;
+}
+
+/* 5. Mantém a caixa do Pix intacta na esquerda */
+.pix-card {
+  background: rgba(255,251,234,0.06); 
+  border: 1px solid rgba(255,251,234,0.22);
+  border-radius: 6px; 
+  padding: 36px; 
+  max-width: 560px;
+  
+  /* Força o card a ficar encostado na esquerda */
+  margin-left: 0 !important;
+  margin-right: auto !important;
+  display: block !important;
+}
+
+/* ==========================================================================
+   ELEMENTOS INTERNOS DO PIX (MANTIDOS EXATAMENTE IGUAIS AOS SEUS)
+   ========================================================================== */
+.pix-label {
+  font-family: 'IBM Plex Mono', monospace; font-size: 12px;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--yellow);
+}
+.pix-key-row {
+  display: flex; align-items: center; gap: 14px; margin-top: 14px;
+  background: rgba(0,0,0,0.18); border: 1px dashed rgba(255,251,234,0.35);
+  border-radius: 4px; padding: 16px 18px;
+}
+.pix-key { font-family: 'IBM Plex Mono', monospace; font-size: 15.5px; word-break: break-all; flex: 1; }
+.copy-btn {
+  flex-shrink: 0; background: var(--yellow); color: var(--navy);
+  border: none; border-radius: 3px; padding: 9px 16px; font-weight: 600;
+  font-size: 13.5px; font-family: 'Work Sans', sans-serif; cursor: pointer;
+  transition: background .15s;
+}
+.copy-btn:hover { background: #fff066; }
+.copy-btn.copied { background: var(--green); color: var(--cream); }
+.pix-titular { margin-top: 12px; font-size: 14px; color: rgba(255,251,234,0.65); }
+
+
+footer { background: var(--ink); color: var(--yellow-soft); padding: 56px 28px 32px; }
+.foot-grid {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  flex-wrap: wrap; gap: 24px; padding-bottom: 28px;
+  border-bottom: 1px solid rgba(255,230,0,0.14);
+}
+.foot-brand { display: flex; align-items: center; gap: 10px; font-family: 'Fraunces', serif; font-size: 19px; font-weight: 600; color: #fff; }
+.foot-brand .logo-mark { height: 28px; }
+footer .addr-small { font-size: 14px; color: rgba(255,243,176,0.6); max-width: 34ch; }
+footer .copyright {
+  font-size: 12.5px; color: rgba(255,243,176,0.4); padding-top: 20px;
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+.footer-social-titulo {
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.social-links {
+  display: flex;
+  align-items: center;
+  gap: 18px; /* Espaçamento equilibrado entre os ícones */
+}
+
+/* Regra geral para todos os links de ícone */
+.social-icon-link {
+  color: inherit; /* Herda o tom de cinza/branco do seu rodapé */
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  opacity: 0.75;
+}
+
+/* Controla o tamanho idêntico dos 3 vetores */
+.social-icon {
+  width: 22px;
+  height: 22px;
+}
+
+/* Efeito Hover unificado (acende e dá um leve zoom ao passar o rato) */
+.social-icon-link:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+@media (max-width: 860px) {
+ 
+  .nav {
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px;
+  }
+  nav.links {
+    display: flex; 
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    font-size: 13.5px;
+  }
+  
+  section { padding: 64px 20px; }
+  .wrap { padding: 0 20px; }
+
+ 
+  .hero { padding: 48px 20px; }
+  .hero .wrap { 
+    grid-template-columns: 1fr; 
+    gap: 32px;
+    text-align: center;
+  }
+  .hero-logo-wrap { order: -1; } 
+  .hero-logo { width: 160px; margin: 0 auto; }
+  .hero .subtitle { margin: 18px auto 0; }
+  .hero .verse { 
+    margin: 24px auto 0; 
+    border-left: none; 
+    border-top: 2px solid var(--navy); 
+    padding-left: 0; 
+    padding-top: 14px; 
+  }
+  .hero-cta { justify-content: center; }
+  .hero-cta .btn { width: 100%; } /* Botões ocupam toda a largura */
+
+  
+  .culto-grid { grid-template-columns: 1fr; gap: 16px; }
+  .local-grid { grid-template-columns: 1fr; gap: 24px; }
+  
+  .historia-card { 
+    grid-template-columns: 1fr; 
+    padding: 32px 24px; 
+    text-align: center;
+    justify-items: center;
+  }
+  .historia-card .logo-mark { height: 48px; margin-bottom: 8px; }
+
+
+  .local-info { padding: 28px 20px; gap: 24px; }
+  .local-info .btn { width: 100%; }
+  .map-frame, .map-frame iframe { min-height: 260px; }
+
+ 
+  .pix-card { padding: 28px 20px; }
+  .pix-key-row { flex-direction: column; text-align: center; gap: 12px; }
+  .copy-btn { width: 100%; }
+
+
+  .foot-grid { flex-direction: column; align-items: center; text-align: center; gap: 16px; }
+  footer .addr-small { max-width: 100%; }
+  footer .copyright { text-align: center; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .btn, .copy-btn { transition: none; }
+}
+
+
+/* SEÇÃO: EVENTOS E LOUVOR */
+
+
+.secao-eventos-unica {
+  background: var(--white); /* Deixa a seção de eventos bem limpa, destacando os cartazes */
+  border-bottom: 1px solid var(--line);
+  padding: 65px 0; /* Espaçamento idêntico em cima e embaixo */
+}
+/* Container do Carrossel que fica no topo, centralizado */
+.carrossel-secao-topo {
+  width: 100%;
+  margin-bottom: 60px;
+}
+
+
+/* Caixa do carrossel vertical */
+.carrossel-vertical-limpo {
+  position: relative;
+  width: 100%;
+  max-width: 460px; 
+  aspect-ratio: 3/4; 
+  background: transparent;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(29, 22, 8, 0.06);
+  margin: 0 auto; /* Centraliza perfeitamente o carrossel na tela */
+}
+
+.carrossel-slides {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+  z-index: 1;
+}
+
+.slide.active {
+  opacity: 1;
+  z-index: 2;
+}
+
+.img-mural-expandir {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Corrigido de cubic-bezier para preencher o bloco corretamente */
+  cursor: zoom-in; 
+}
+
+.slide-caption-limpo {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(transparent, rgba(18, 14, 5, 0.95));
+  padding: 40px 24px 24px 24px;
+  color: #fff;
+  z-index: 3;
+  pointer-events: none; 
+}
+
+.slide-caption-limpo h3 {
+  font-family: 'Fraunces', serif;
+  font-size: 24px;
+  color: #e0aa3e; 
+  margin-bottom: 6px;
+}
+
+.slide-caption-limpo p {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0;
+}
+
+/* Botões do Carrossel */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #fff;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  font-size: 16px;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.2s ease;
+}
+
+.carousel-btn:hover {
+  background: #fff;
+  color: var(--navy);
+}
+
+.carousel-btn.prev { left: 8px; }
+.carousel-btn.next { right: 8px; }
+
+
+/* Configurações da Mensagem do Pastor (Spotify 1) */
+.secao-midias-unica {
+  background: var(--yellow-soft ); /* Volta para o tom creme original do seu site */
+  border-bottom: 1px solid var(--line);
+  padding: 80px 0 120px 0;
+  display: block;
+  width: 100%;
+  box-sizing: border-box; /* Espaçamento confortável */
+}
+
+/* Alinha a Mensagem do Pastor e a Playlist lado a lado */
+.midia-lado-a-lado-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 40px;
+}
+
+/* Faz ambos dividirem a tela de forma igual (50% / 50%) */
+.palavra-diaria-container, .spotify-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.audio-player-box {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+}
+
+.spotify-widget-pastor {
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  width: 100%;
+  height: 380px; /* Mesma altura da playlist ao lado */
+  background: #fff;
+}
+
+/* Configurações da Playlist (Spotify 2) */
+.spotify-widget-playlist {
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  width: 100%;
+  height: 383px; /* Alinhado em tamanho perfeito */
+  background: #fff;
+  margin-top: auto;
+}
+
+/* (LIGHTBOX DO MODAL) */
+.mural-modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  padding-top: 20px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(18, 14, 5, 0.96);
+  backdrop-filter: blur(6px);
+}
+
+.modal-conteudo {
+  margin: auto;
+  display: block;
+  max-width: 95%;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 6px;
+  box-shadow: 0 16px 48px rgba(0,0,0,0.6);
+  animation: zoomModal 0.2s ease;
+}
+
+@keyframes zoomModal {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.modal-fechar {
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  color: #fff;
+  font-size: 42px;
+  cursor: pointer;
+  z-index: 1010;
+}
+
+/* RESPONSIVIDADE (CELULAR / TABLETS) */
+@media (max-width: 860px) {
+  .eventos-louvor { 
+    padding: 40px 20px 80px 20px; 
+  }
+  
+  /* Quebra o layout lado a lado para empilhado no celular */
+  .midia-lado-a-lado-container {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .carrossel-vertical-limpo {
+    max-width: 100%; /* Permite que o carrossel use melhor a tela do celular */
+  }
+  
+  .spotify-widget-pastor,
+  .spotify-widget-playlist {
+    height: 340px; /* Um pouco menor para caber melhor na tela do celular */
+  }
+}
